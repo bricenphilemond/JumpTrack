@@ -24,7 +24,11 @@ def main():
             print("Jump added successfully!")
         elif choice == "2":
             # view jumps
-            pass
+            if len(jumps) == 0:
+                print("No jumps logged yet!")
+            else:
+                for jump in jumps:
+                    print(f"Date: {jump.date}, Event: {jump.event}, Attempts: {jump.attempts}")
         elif choice == "3":
             # view personal best
             pass
