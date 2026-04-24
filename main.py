@@ -31,7 +31,12 @@ def main():
                     print(f"Date: {jump.date}, Event: {jump.event}, Attempts: {jump.attempts}")
         elif choice == "3":
             # view personal best
-            pass
+            long_jump_pb = 0
+            for jump in jumps:
+                if jump.event == "long jump":
+                    if jump.best_attempt() > long_jump_pb:
+                        long_jump_pb = jump.best_attempt()
+
         elif choice == "4":
             save_jumps(jumps, FILENAME)
             print("Goodbye!")
