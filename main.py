@@ -32,14 +32,22 @@ def main():
         elif choice == "3":
             # view personal best
             long_jump_pb = 0
+            triple_jump_pb = 0
             for jump in jumps:
                 if jump.event == "long jump":
                     if jump.best_attempt() > long_jump_pb:
                         long_jump_pb = jump.best_attempt()
-
+                if jump.event == "triple jump": 
+                    if jump.best_attempt() > triple_jump_pb:
+                        triple_jump_pb = jump.best_attempt()
+            print(f"personal best for long jump: {long_jump_pb} meters")         
+            print(f"personal best for triple jump: {triple_jump_pb} meters") 
         elif choice == "4":
             save_jumps(jumps, FILENAME)
             print("Goodbye!")
             break
-        
+        else:
+            print("Invalid choice. Please try again.")
+if __name__ == "__main__":
+    main()       
        
