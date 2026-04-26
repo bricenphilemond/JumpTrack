@@ -11,6 +11,6 @@ class Jump:
         for attempt in self.attempts:
             if attempt == "F" or attempt == "f":
                 continue 
-            if attempt > best:
-                best = attempt
+            if float(attempt.replace("m", "")) > best:
+                best = float(attempt.replace("m", ""))
         return best 
