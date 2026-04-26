@@ -1,4 +1,5 @@
 from tracker import save_jumps, load_jumps
+from charts import show_chart
 from jump import Jump 
 FILENAME = "jumps.csv"
 def main():
@@ -9,6 +10,7 @@ def main():
         print("2. View jumps")
         print("3. View personal best")
         print("4. Exit")
+        print("5. View Progress Chart")
         choice = input("Enter your choice: ")
         if choice == "1":
             # Add a jump
@@ -18,7 +20,7 @@ def main():
             input_distance2 = input("enter attempt 2 of the jump(or f for foul) in meters:")
             input_distance3 = input("enter attempt 3 of the jump(or f for foul) in meters:")
             input_distance4 = input("enter attempt 4 of the jump(or f for foul) in meters:")
-            attempts = [input_distance1, input_distance2, input_distance3, input_distance4]
+            attempts = [a for a in [input_distance1, input_distance2, input_distance3, input_distance4] if a.strip() != ""]
             jumps.append(Jump(input_date, input_event, attempts))
             save_jumps(jumps, FILENAME)
             print("Jump added successfully!")
@@ -46,8 +48,12 @@ def main():
             save_jumps(jumps, FILENAME)
             print("Goodbye!")
             break
+        elif choice == "5":
+            show_chart(jumps)
         else:
             print("Invalid choice. Please try again.")
+
 if __name__ == "__main__":
-    main()       
-       
+    main()
+
+    
