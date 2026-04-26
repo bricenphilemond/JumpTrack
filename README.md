@@ -19,4 +19,5 @@ When you start up the app you will be presented with 5 options.
 3. View your personal best. - See your best jump for each event.
 4. Exit. - Close the app
 5. View progress chart - See your progress overtime on a chart.
-Type in the number of which option you want to use and press enter!
+
+Type in the number of which option you want to use and press enter
