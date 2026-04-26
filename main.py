@@ -20,6 +20,8 @@ def main():
             input_distance2 = input("enter attempt 2 of the jump(or f for foul) in meters:")
             input_distance3 = input("enter attempt 3 of the jump(or f for foul) in meters:")
             input_distance4 = input("enter attempt 4 of the jump(or f for foul) in meters:")
+
+            # I asked AI how to filter out empty inputs from a list using list comprehension and wrote this based on the response
             attempts = [a for a in [input_distance1, input_distance2, input_distance3, input_distance4] if a.strip() != ""]
             jumps.append(Jump(input_date, input_event, attempts))
             save_jumps(jumps, FILENAME)
@@ -30,6 +32,7 @@ def main():
                 print("No jumps logged yet!")
             else:
                 for jump in jumps:
+                    # I asked AI how to use f-strings to format output and wrote this based on the response
                     print(f"Date: {jump.date}, Event: {jump.event}, Attempts: {jump.attempts}")
         elif choice == "3":
             # view personal best
@@ -42,6 +45,7 @@ def main():
                 if jump.event == "triple jump": 
                     if jump.best_attempt() > triple_jump_pb:
                         triple_jump_pb = jump.best_attempt()
+            # I asked AI how to use f-strings to format output and wrote this based on the response
             print(f"personal best for long jump: {long_jump_pb} meters")         
             print(f"personal best for triple jump: {triple_jump_pb} meters") 
         elif choice == "4":
@@ -52,7 +56,7 @@ def main():
             show_chart(jumps)
         else:
             print("Invalid choice. Please try again.")
-
+#  I asked AI about the standard Python entry point pattern and wrote this based on the response
 if __name__ == "__main__":
     main()
 
